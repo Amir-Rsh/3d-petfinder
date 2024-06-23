@@ -1,10 +1,13 @@
+/* style.css */
+
+/* Ensure the canvas is behind everything else */
 canvas {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: black;
   z-index: -1;
 }
+
 body {
   display: flex;
   justify-content: center;
@@ -13,10 +16,12 @@ body {
   margin: 0;
   background-color: salmon;
 }
+
 h1 {
   text-align: center;
-  margin-top: 400px;
+  margin-top: 400px; /* Adjust as needed */
 }
+
 #loading-screen {
   position: fixed;
   top: 0;
@@ -30,13 +35,15 @@ h1 {
   font-size: 2em;
   z-index: 1000; /* Ensure the loading screen is above other content */
 }
+
 .hidden {
-  visibility: hidden;
+  display: none; /* Hide the main content initially */
 }
 
 .visible {
   visibility: visible;
 }
+
 .disable-scroll {
   overflow: hidden; /* Class to disable scrolling */
 }

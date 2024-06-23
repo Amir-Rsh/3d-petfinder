@@ -1,6 +1,6 @@
 import "./style.css";
 import * as THREE from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color("salmon");
@@ -86,10 +86,14 @@ async function loadModels() {
   ];
 
   await Promise.all(promises);
-  loadingScreen.style.display = "none"; // Hide loading screen when all models are loaded
-  mainContent.classList.remove("hidden"); // Show the main content
+
+  // Hide loading screen and show main content
+  loadingScreen.style.display = "none";
+  mainContent.classList.remove("hidden");
   mainContent.classList.add("visible");
-  document.body.classList.remove("disable-scroll"); // Enable scrolling
+
+  // Enable scrolling
+  document.body.classList.remove("disable-scroll");
 }
 
 // Disable scrolling initially
