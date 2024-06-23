@@ -3,16 +3,17 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 21.2.0 # Specify the Node.js version you need
+      nodejs: 14
     commands:
-      - npm install # Install all dependencies
-  pre_build:
-    commands:
-      - npm install -g vite # Ensure Vite is installed globally
+      - npm install
   build:
     commands:
-      - npm run build # Run the build script
+      - npm run build
+  post_build:
+    commands:
+      - aws s3 sync dist/ s3://petfinder3d/
+
 artifacts:
   files:
     - "**/*"
-  base-directory: dist # Adjust based on your output directory
+  discard-paths: yes
