@@ -16,7 +16,6 @@ const renderer = new THREE.WebGLRenderer();
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
 
 camera.position.set(0, 1, 0);
 
@@ -79,9 +78,37 @@ loadModel("/models/an_animated_cat.glb", "cat");
 
 Array(200)
   .fill()
-  .map(() => loadModel("/models/dog_treat.glb", "bone", "randomize"));
+  .map(() => loadModel("/models/cat_plushie.glb", "bone", "randomize"));
 
 function animate() {
+  if (dogModel && catModel && !document.getElementById("content")) {
+    document.body.innerHTML += `
+    <div id="content">
+        <h1>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel repellat
+          nam quis corporis, reprehenderit optio sed placeat adipisci sit natus
+          reiciendis, sint neque perferendis deleniti laudantium ipsum ea maiores
+          veritatis.
+        </h1>
+        <h1>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe
+          neque rerum dignissimos distinctio accusamus, tenetur, deleniti sit
+          minima laborum in voluptatem magni temporibus quidem atque commodi
+          soluta provident pariatur.
+        </h1>
+        <h1>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+          laudantium eligendi fugit enim aliquam libero. Officiis quo, praesentium
+          natus reiciendis quidem vel unde modi aliquam, voluptatem quae corrupti,
+          porro aliquid!
+        </h1>
+      </div>
+    `;
+    document
+      .getElementById("loadingPage")
+      .parentNode.removeChild(document.getElementById("loadingPage"));
+    document.body.appendChild(renderer.domElement);
+  }
   requestAnimationFrame(animate);
   if (dogModel) {
     dogModel.position.z = -2;
