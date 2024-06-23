@@ -17,3 +17,26 @@ h1 {
   text-align: center;
   margin-top: 400px;
 }
+#loading-screen {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  z-index: 1000; /* Ensure the loading screen is above other content */
+}
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+.disable-scroll {
+  overflow: hidden; /* Class to disable scrolling */
+}
