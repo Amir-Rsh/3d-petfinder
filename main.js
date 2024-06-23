@@ -50,19 +50,19 @@ function loadModel(path, animal, randomizer) {
         }
         if (animal === "cat") {
           model.scale.set(0.05, 0.05, 0.05);
-          catMixer = new THREE.AnimationMixer(gltf.scene);
-          gltf.animations.forEach((clip) => {
-            catMixer.clipAction(clip).play();
-          });
+          // catMixer = new THREE.AnimationMixer(gltf.scene);
+          // gltf.animations.forEach((clip) => {
+          //   catMixer.clipAction(clip).play();
+          // });
           model.rotation.y = THREE.MathUtils.degToRad(-40);
           catModel = model;
         }
         if (animal === "dog") {
           dogModel = model;
-          dogMixer = new THREE.AnimationMixer(gltf.scene);
-          gltf.animations.forEach((clip) => {
-            dogMixer.clipAction(clip).play();
-          });
+          // dogMixer = new THREE.AnimationMixer(gltf.scene);
+          // gltf.animations.forEach((clip) => {
+          //   dogMixer.clipAction(clip).play();
+          // });
         }
         scene.add(model);
         resolve();
@@ -111,9 +111,9 @@ window.addEventListener("resize", onWindowResize);
 
 function animate() {
   requestAnimationFrame(animate);
-  const delta = clock.getDelta();
-  if (dogMixer) dogMixer.update(delta);
-  if (catMixer) catMixer.update(delta);
+  // const delta = clock.getDelta();
+  // if (dogMixer) dogMixer.update(delta);
+  // if (catMixer) catMixer.update(delta);
 
   if (dogModel) {
     dogModel.position.z = -2;
@@ -131,7 +131,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-const clock = new THREE.Clock();
+// const clock = new THREE.Clock();
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
