@@ -81,7 +81,12 @@ Array(200)
   .map(() => loadModel("/models/cat_plushie.glb", "bone", "randomize"));
 
 function animate() {
-  if (dogModel && catModel && !document.getElementById("content")) {
+  if (
+    dogModel &&
+    catModel &&
+    !document.getElementById("content") &&
+    boneModel.length === 200
+  ) {
     document.body.innerHTML += `
     <div id="content">
         <h1>
@@ -110,21 +115,26 @@ function animate() {
     document.body.appendChild(renderer.domElement);
   }
   requestAnimationFrame(animate);
-  if (dogModel) {
+  if (
+    dogModel &&
+    catModel &&
+    document.getElementById("content") &&
+    boneModel.length === 200
+  ) {
     dogModel.position.z = -2;
+    catModel.position.z = 0;
+
+    boneModel.forEach((bone, i) => {
+      bone.rotation.x += parseFloat("0.00" + i);
+      bone.rotation.y += parseFloat("0.00" + i);
+      bone.rotation.z += parseFloat("0.00" + i);
+    });
+    const delta = clock.getDelta();
+    if (dogMixer) dogMixer.update(delta);
+    if (catMixer) catMixer.update(delta);
+
+    renderer.render(scene, camera);
   }
-  if (catModel) catModel.position.z = 0;
-
-  boneModel.forEach((bone, i) => {
-    bone.rotation.x += parseFloat("0.00" + i);
-    bone.rotation.y += parseFloat("0.00" + i);
-    bone.rotation.z += parseFloat("0.00" + i);
-  });
-  const delta = clock.getDelta();
-  if (dogMixer) dogMixer.update(delta);
-  if (catMixer) catMixer.update(delta);
-
-  renderer.render(scene, camera);
 }
 
 const clock = new THREE.Clock();
