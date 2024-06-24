@@ -1,6 +1,7 @@
 import "./style.css";
 import * as THREE from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+// import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { FBXLoader } from "three-stdlib";
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color("salmon");
@@ -17,25 +18,26 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-camera.position.set(0, 1, 0);
+camera.position.set(0, 5, 10);
 
 // let boneModel = [];
-let dogModel;
-let catModel;
+let archerModel;
+let archerMixer;
+// let catModel;
 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(25, 25, 25);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-function loadModel(path, animal, randomizer) {
-  const loader = new GLTFLoader();
+const dogTexture = new THREE.TextureLoader().load("/textures/Image_0.png");
+
+function loadModel(path, character, randomizer) {
+  const loader = new FBXLoader();
 
   loader.load(
     path,
-    function (gltf) {
-      const model = gltf.scene;
-
+    function (model) {
       // if (randomizer) {
       //   model.scale.set(0.2, 0.2, 0.2);
       //   const [x, y, z] = Array(3)
@@ -44,17 +46,21 @@ function loadModel(path, animal, randomizer) {
       //   model.position.set(x, y, z);
       //   boneModel.push(model);
       // }
-      if (animal === "cat") {
+      if (character === "archer") {
         model.scale.set(0.05, 0.05, 0.05);
-
-        model.rotation.x = -2;
-        catModel = model;
+        model.children[2].material.map = dogTexture;
+        // model.rotation.x = -2;
+        // catModel = model;
+        archerModel = model;
+        archerMixer = new THREE.AnimationMixer(model);
+        const action = archerMixer.clipAction(model.animations[0]);
+        action.play();
       }
-      if (animal === "dog") {
-        model.rotation.y = 3;
+      // if (character === "dog") {
+      //   model.rotation.y = 3;
 
-        dogModel = model;
-      }
+      //   archerModel = model;
+      // }
       scene.add(model);
     },
     function (xhr) {
@@ -66,8 +72,8 @@ function loadModel(path, animal, randomizer) {
   );
 }
 
-loadModel("/models/Bond_Test.glb", "dog");
-loadModel("/models/cat_figure.glb", "cat");
+loadModel("/models/AnimatedDog.fbx", "archer");
+// loadModel("/models/cat_figure.glb", "cat");
 
 // Array(200)
 //   .fill()
@@ -75,8 +81,8 @@ loadModel("/models/cat_figure.glb", "cat");
 
 function animate() {
   if (
-    dogModel &&
-    catModel &&
+    archerModel &&
+    // catModel &&
     !document.getElementById("content")
     // boneModel.length === 400
   ) {
@@ -109,13 +115,15 @@ function animate() {
   }
   requestAnimationFrame(animate);
   if (
-    dogModel &&
-    catModel &&
+    archerModel &&
+    archerMixer &&
     document.getElementById("content")
     // boneModel.length === 400
   ) {
-    dogModel.position.z = -4;
-    catModel.position.z = 0;
+    archerMixer.update(0.01);
+
+    archerModel.position.z = 0;
+    // catModel.position.z = 0;
 
     // boneModel.forEach((bone, i) => {
     //   bone.rotation.x += parseFloat("0.00" + i);
@@ -129,12 +137,12 @@ function animate() {
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  camera.position.z = t * -0.004;
-  // dogModel.rotation.x += 0.01;
-  dogModel.rotation.y += 0.05;
-  // dogModel.rotation.z += 0.01;
+  camera.position.z = 10 - t * 0.01;
+  // archerModel.rotation.x += 0.01;
+  // archerModel.rotation.y += 0.05;
+  // archerModel.rotation.z += 0.01;
   // catModel.rotation.x += 0.01;
-  catModel.rotation.z += 0.05;
+  // catModel.rotation.z += 0.05;
   // catModel.rotation.z += 0.01;
 }
 
