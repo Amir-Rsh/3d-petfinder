@@ -19,9 +19,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 camera.position.set(0, 1, 0);
 
-let dogMixer;
-let catMixer;
-let boneModel = [];
+// let boneModel = [];
 let dogModel;
 let catModel;
 
@@ -38,29 +36,24 @@ function loadModel(path, animal, randomizer) {
     function (gltf) {
       const model = gltf.scene;
 
-      if (randomizer) {
-        model.scale.set(0.2, 0.2, 0.2);
-        const [x, y, z] = Array(3)
-          .fill()
-          .map(() => THREE.MathUtils.randFloatSpread(100));
-        model.position.set(x, y, z);
-        boneModel.push(model);
-      }
+      // if (randomizer) {
+      //   model.scale.set(0.2, 0.2, 0.2);
+      //   const [x, y, z] = Array(3)
+      //     .fill()
+      //     .map(() => THREE.MathUtils.randFloatSpread(100));
+      //   model.position.set(x, y, z);
+      //   boneModel.push(model);
+      // }
       if (animal === "cat") {
         model.scale.set(0.05, 0.05, 0.05);
-        catMixer = new THREE.AnimationMixer(gltf.scene);
-        gltf.animations.forEach((clip) => {
-          catMixer.clipAction(clip).play();
-          model.rotation.y = 106;
-        });
+
+        model.rotation.x = -2;
         catModel = model;
       }
       if (animal === "dog") {
+        model.rotation.y = 3;
+
         dogModel = model;
-        dogMixer = new THREE.AnimationMixer(gltf.scene);
-        gltf.animations.forEach((clip) => {
-          dogMixer.clipAction(clip).play();
-        });
       }
       scene.add(model);
     },
@@ -73,19 +66,19 @@ function loadModel(path, animal, randomizer) {
   );
 }
 
-loadModel("/models/dogString.glb", "dog");
-loadModel("/models/an_animated_cat.glb", "cat");
+loadModel("/models/Bond_Test.glb", "dog");
+loadModel("/models/cat_figure.glb", "cat");
 
-Array(200)
-  .fill()
-  .map(() => loadModel("/models/cat_plushie.glb", "bone", "randomize"));
+// Array(200)
+//   .fill()
+//   .map(() => loadModel("/models/cat_plushie.glb", "bone", "randomize"));
 
 function animate() {
   if (
     dogModel &&
     catModel &&
-    !document.getElementById("content") &&
-    boneModel.length === 200
+    !document.getElementById("content")
+    // boneModel.length === 400
   ) {
     document.body.innerHTML += `
     <div id="content">
@@ -118,30 +111,31 @@ function animate() {
   if (
     dogModel &&
     catModel &&
-    document.getElementById("content") &&
-    boneModel.length === 200
+    document.getElementById("content")
+    // boneModel.length === 400
   ) {
-    dogModel.position.z = -2;
+    dogModel.position.z = -4;
     catModel.position.z = 0;
 
-    boneModel.forEach((bone, i) => {
-      bone.rotation.x += parseFloat("0.00" + i);
-      bone.rotation.y += parseFloat("0.00" + i);
-      bone.rotation.z += parseFloat("0.00" + i);
-    });
-    const delta = clock.getDelta();
-    if (dogMixer) dogMixer.update(delta);
-    if (catMixer) catMixer.update(delta);
+    // boneModel.forEach((bone, i) => {
+    //   bone.rotation.x += parseFloat("0.00" + i);
+    //   bone.rotation.y += parseFloat("0.00" + i);
+    //   bone.rotation.z += parseFloat("0.00" + i);
+    // });
 
     renderer.render(scene, camera);
   }
 }
 
-const clock = new THREE.Clock();
-
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
   camera.position.z = t * -0.004;
+  // dogModel.rotation.x += 0.01;
+  dogModel.rotation.y += 0.05;
+  // dogModel.rotation.z += 0.01;
+  // catModel.rotation.x += 0.01;
+  catModel.rotation.z += 0.05;
+  // catModel.rotation.z += 0.01;
 }
 
 document.body.onscroll = moveCamera;
