@@ -1,6 +1,6 @@
 import "./style.css";
 import * as THREE from "three";
-// import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { FBXLoader } from "three-stdlib";
 
 const scene = new THREE.Scene();
@@ -20,10 +20,9 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 camera.position.set(0, 5, 10);
 
-// let boneModel = [];
-let archerModel;
-let archerMixer;
-// let catModel;
+let dogModel;
+let dogMixer;
+let catModel;
 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(25, 25, 25);
@@ -31,36 +30,39 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 const dogTexture = new THREE.TextureLoader().load("/textures/Image_0.png");
+const catTexture = new THREE.TextureLoader().load("/textures/model1.jpg");
+// const catTexture2 = new THREE.TextureLoader().load("/textures/cat23.jpg");
 
-function loadModel(path, character, randomizer) {
+const pillowTexture = new THREE.TextureLoader().load("/textures/model.jpg");
+
+function loadModel(path, character) {
   const loader = new FBXLoader();
 
   loader.load(
     path,
     function (model) {
-      // if (randomizer) {
-      //   model.scale.set(0.2, 0.2, 0.2);
-      //   const [x, y, z] = Array(3)
-      //     .fill()
-      //     .map(() => THREE.MathUtils.randFloatSpread(100));
-      //   model.position.set(x, y, z);
-      //   boneModel.push(model);
-      // }
-      if (character === "archer") {
+      if (character === "dog") {
         model.scale.set(0.05, 0.05, 0.05);
         model.children[2].material.map = dogTexture;
-        // model.rotation.x = -2;
-        // catModel = model;
-        archerModel = model;
-        archerMixer = new THREE.AnimationMixer(model);
-        const action = archerMixer.clipAction(model.animations[0]);
+        dogModel = model;
+        dogMixer = new THREE.AnimationMixer(model);
+        const action = dogMixer.clipAction(model.animations[0]);
         action.play();
       }
-      // if (character === "dog") {
-      //   model.rotation.y = 3;
+      if (character === "cat") {
+        model.scale.set(0.1, 0.1, 0.1);
+        console.log(model.children[0].material[0].map); // model.children[0].material[0].map = catTexture;
+        // model.children[0].material[1].map = catTexture2;
+        model.children[0].material[0].map = pillowTexture;
+        model.children[0].material[1].map = catTexture;
 
-      //   archerModel = model;
-      // }
+        // model.children[2].material.map = catTexture;
+
+        // model.children[1].material.map = catTexture;
+        // model.children[0].material.map = catTexture;
+
+        catModel = model;
+      }
       scene.add(model);
     },
     function (xhr) {
@@ -72,33 +74,18 @@ function loadModel(path, character, randomizer) {
   );
 }
 
-loadModel("/models/AnimatedDog.fbx", "archer");
-// loadModel("/models/cat_figure.glb", "cat");
-
-// Array(200)
-//   .fill()
-//   .map(() => loadModel("/models/cat_plushie.glb", "bone", "randomize"));
+loadModel("/models/AnimatedDog.fbx", "dog");
+loadModel("/models/model.fbx", "cat");
 
 function animate() {
-  if (
-    archerModel &&
-    // catModel &&
-    !document.getElementById("content")
-    // boneModel.length === 400
-  ) {
+  if (dogModel && catModel && !document.getElementById("content")) {
     document.body.innerHTML += `
     <div id="content">
-        <h1>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel repellat
-          nam quis corporis, reprehenderit optio sed placeat adipisci sit natus
-          reiciendis, sint neque perferendis deleniti laudantium ipsum ea maiores
-          veritatis.
+        <h1 id="firstHeader">
+         Are You Looking For a Cute Kitten?
         </h1>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe
-          neque rerum dignissimos distinctio accusamus, tenetur, deleniti sit
-          minima laborum in voluptatem magni temporibus quidem atque commodi
-          soluta provident pariatur.
+        <h1 id="secondHeader">
+        Or a Playful Puppy
         </h1>
         <h1>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
@@ -114,22 +101,20 @@ function animate() {
     document.body.appendChild(renderer.domElement);
   }
   requestAnimationFrame(animate);
-  if (
-    archerModel &&
-    archerMixer &&
-    document.getElementById("content")
-    // boneModel.length === 400
-  ) {
-    archerMixer.update(0.01);
+  if (dogModel && dogMixer && document.getElementById("content")) {
+    dogMixer.update(0.01);
 
-    archerModel.position.z = 0;
-    // catModel.position.z = 0;
+    dogModel.position.z = 10;
+    dogModel.position.y = 1;
+    // catModel.position.y = 2;
+    catModel.position.x = 1;
+    catModel.position.z = 0;
+    catModel.position.y = 4;
 
-    // boneModel.forEach((bone, i) => {
-    //   bone.rotation.x += parseFloat("0.00" + i);
-    //   bone.rotation.y += parseFloat("0.00" + i);
-    //   bone.rotation.z += parseFloat("0.00" + i);
-    // });
+    catModel.rotation.z = Math.PI + 0.2;
+    // catModel.rotation.x += 0.02;
+
+    catModel.rotation.y = Math.PI - 0.4;
 
     renderer.render(scene, camera);
   }
@@ -138,9 +123,6 @@ function animate() {
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
   camera.position.z = 10 - t * 0.01;
-  // archerModel.rotation.x += 0.01;
-  // archerModel.rotation.y += 0.05;
-  // archerModel.rotation.z += 0.01;
   // catModel.rotation.x += 0.01;
   // catModel.rotation.z += 0.05;
   // catModel.rotation.z += 0.01;

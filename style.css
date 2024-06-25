@@ -12,11 +12,21 @@ body {
   flex-direction: column;
   margin: 0;
   background-color: salmon;
+  cursor: default;
 }
-h1 {
+#firstHeader {
+  text-align: center;
+  margin-top: 20%;
+}
+#secondHeader {
+  margin-top: 100%;
+  text-align: center;
+  margin-bottom: 100%;
+}
+/* h1 {
   text-align: center;
   margin-top: 400px;
-}
+} */
 #loadingPage {
   width: 100%;
   height: 100%;
