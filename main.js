@@ -24,6 +24,10 @@ let dogModel;
 let dogMixer;
 let catModel;
 let catMixer;
+let rabbitModel;
+let rabbitMixer;
+let birdModel;
+let birdMixer;
 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(25, 25, 25);
@@ -67,6 +71,22 @@ function loadModel(path, character, format) {
           catMixer.clipAction(clip).play();
         });
       }
+      if (character === "rabbit") {
+        model.scale.set(0.1, 0.1, 0.1);
+        rabbitModel = model;
+        rabbitMixer = new THREE.AnimationMixer(model);
+        geometry.animations.forEach((clip) => {
+          rabbitMixer.clipAction(clip).play();
+        });
+      }
+      if (character === "bird") {
+        model.scale.set(6.5, 6.5, 6.5);
+        birdModel = model;
+        birdMixer = new THREE.AnimationMixer(model);
+        geometry.animations.forEach((clip) => {
+          birdMixer.clipAction(clip).play();
+        });
+      }
       scene.add(model);
     },
     function (xhr) {},
@@ -78,17 +98,31 @@ function loadModel(path, character, format) {
 
 loadModel("./AnimatedDog.fbx", "dog", "fbx");
 loadModel("./an_animated_cat.glb", "cat", "glb");
+loadModel("./rabbit_rigged.glb", "rabbit", "glb");
+loadModel("./pigeon.glb", "bird", "glb");
 
 function animate() {
-  if (dogModel && catModel && !document.getElementById("content")) {
+  if (
+    dogModel &&
+    catModel &&
+    rabbitModel &&
+    birdModel &&
+    !document.getElementById("content")
+  ) {
     document.body.innerHTML += `
     <div id="content">
-        <div id="firstHeader">
+        <div class="sections">
          <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
         </div>
-        <div id="secondHeader">
+        <div class="sections">
        <h1 class="headers"> Or a Playful Puppy</h1>
         </div>
+        <div class="sections">
+        <h1 class="headers"> Maybe a Hopping Furball?</h1>
+         </div>
+         <div class="sections">
+        <h1 class="headers"> How About a Distinguished Singer?</h1>
+         </div>
         
       </div>
     `;
@@ -103,22 +137,30 @@ function animate() {
     dogMixer &&
     catModel &&
     catMixer &&
+    rabbitModel &&
+    rabbitMixer &&
+    birdModel &&
+    birdMixer &&
     document.getElementById("content")
   ) {
     dogMixer.update(0.01);
 
     dogModel.position.z = 10;
     dogModel.position.y = 1;
-    // catModel.position.y = 2;
-    // catModel.position.x = 1;
-    // catModel.position.z = 0;
-    // catModel.position.y = 4;
+
     catMixer.update(0.01);
-
-    // catModel.rotation.z = Math.PI + 0.2;
-    // catModel.rotation.x += 0.02;
-
     catModel.rotation.y = Math.PI + 0.4;
+
+    rabbitModel.position.z = 22;
+    rabbitModel.position.y = 3;
+    rabbitModel.position.x = 0.5;
+    rabbitModel.rotation.y = Math.PI / -4;
+    rabbitMixer.update(0.01);
+
+    birdModel.position.z = 30;
+    birdModel.position.y = 1;
+    birdModel.rotation.y = Math.PI / -4;
+    birdMixer.update(0.01);
 
     renderer.render(scene, camera);
   }
