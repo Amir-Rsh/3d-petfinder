@@ -4,7 +4,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { FBXLoader } from "three-stdlib";
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("salmon");
+scene.background = new THREE.Color("lightgreen");
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -31,8 +31,6 @@ scene.add(pointLight, ambientLight);
 
 const dogTexture = new THREE.TextureLoader().load("/textures/Image_0.png");
 const catTexture = new THREE.TextureLoader().load("/textures/model1.jpg");
-// const catTexture2 = new THREE.TextureLoader().load("/textures/cat23.jpg");
-
 const pillowTexture = new THREE.TextureLoader().load("/textures/model.jpg");
 
 function loadModel(path, character) {
@@ -51,23 +49,15 @@ function loadModel(path, character) {
       }
       if (character === "cat") {
         model.scale.set(0.1, 0.1, 0.1);
-        console.log(model.children[0].material[0].map); // model.children[0].material[0].map = catTexture;
-        // model.children[0].material[1].map = catTexture2;
+        console.log(model.children[0].material[0].map);
         model.children[0].material[0].map = pillowTexture;
         model.children[0].material[1].map = catTexture;
-
-        // model.children[2].material.map = catTexture;
-
-        // model.children[1].material.map = catTexture;
-        // model.children[0].material.map = catTexture;
 
         catModel = model;
       }
       scene.add(model);
     },
-    function (xhr) {
-      // console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-    },
+    function (xhr) {},
     function (error) {
       console.error("An error happened", error);
     }
@@ -87,12 +77,7 @@ function animate() {
         <h1 id="secondHeader">
         Or a Playful Puppy
         </h1>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
-          laudantium eligendi fugit enim aliquam libero. Officiis quo, praesentium
-          natus reiciendis quidem vel unde modi aliquam, voluptatem quae corrupti,
-          porro aliquid!
-        </h1>
+        
       </div>
     `;
     document
@@ -123,9 +108,6 @@ function animate() {
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
   camera.position.z = 10 - t * 0.01;
-  // catModel.rotation.x += 0.01;
-  // catModel.rotation.z += 0.05;
-  // catModel.rotation.z += 0.01;
 }
 
 document.body.onscroll = moveCamera;
