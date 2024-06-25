@@ -83,12 +83,12 @@ function animate() {
   if (dogModel && catModel && !document.getElementById("content")) {
     document.body.innerHTML += `
     <div id="content">
-        <h1 id="firstHeader">
-         <span class="headers">Are You Looking For a Cute Kitten?</span>
-        </h1>
-        <h1 id="secondHeader">
-       <span class="headers"> Or a Playful Puppy</span>
-        </h1>
+        <div id="firstHeader">
+         <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
+        </div>
+        <div id="secondHeader">
+       <h1 class="headers"> Or a Playful Puppy</h1>
+        </div>
         
       </div>
     `;
