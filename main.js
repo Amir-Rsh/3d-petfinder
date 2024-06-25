@@ -23,6 +23,7 @@ camera.position.set(0, 5, 10);
 let dogModel;
 let dogMixer;
 let catModel;
+let catMixer;
 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(25, 25, 25);
@@ -30,15 +31,26 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 const dogTexture = new THREE.TextureLoader().load("./Image_0.png");
-const catTexture = new THREE.TextureLoader().load("./model1.jpg");
-const pillowTexture = new THREE.TextureLoader().load("./model.jpg");
 
-function loadModel(path, character) {
-  const loader = new FBXLoader();
+function loadModel(path, character, format) {
+  let loader;
+  if (format === "fbx") {
+    loader = new FBXLoader();
+  } else if (format === "glb") {
+    loader = new GLTFLoader();
+  } else {
+    console.error("Unsupported format:", format);
+    return;
+  }
 
   loader.load(
     path,
-    function (model) {
+    function (geometry) {
+      let model;
+      if (format === "fbx") model = geometry;
+      else if (format === "glb") model = geometry.scene;
+      else return;
+
       if (character === "dog") {
         model.scale.set(0.05, 0.05, 0.05);
         model.children[2].material.map = dogTexture;
@@ -48,11 +60,12 @@ function loadModel(path, character) {
         action.play();
       }
       if (character === "cat") {
-        model.scale.set(0.1, 0.1, 0.1);
-        model.children[0].material[0].map = pillowTexture;
-        model.children[0].material[1].map = catTexture;
-
+        model.scale.set(0.3, 0.3, 0.3);
         catModel = model;
+        catMixer = new THREE.AnimationMixer(model);
+        geometry.animations.forEach((clip) => {
+          catMixer.clipAction(clip).play();
+        });
       }
       scene.add(model);
     },
@@ -63,8 +76,8 @@ function loadModel(path, character) {
   );
 }
 
-loadModel("./AnimatedDog.fbx", "dog");
-loadModel("./model.fbx", "cat");
+loadModel("./AnimatedDog.fbx", "dog", "fbx");
+loadModel("./an_animated_cat.glb", "cat", "glb");
 
 function animate() {
   if (dogModel && catModel && !document.getElementById("content")) {
@@ -85,20 +98,27 @@ function animate() {
     document.body.appendChild(renderer.domElement);
   }
   requestAnimationFrame(animate);
-  if (dogModel && dogMixer && catModel && document.getElementById("content")) {
+  if (
+    dogModel &&
+    dogMixer &&
+    catModel &&
+    catMixer &&
+    document.getElementById("content")
+  ) {
     dogMixer.update(0.01);
 
     dogModel.position.z = 10;
     dogModel.position.y = 1;
     // catModel.position.y = 2;
-    catModel.position.x = 1;
-    catModel.position.z = 0;
-    catModel.position.y = 4;
+    // catModel.position.x = 1;
+    // catModel.position.z = 0;
+    // catModel.position.y = 4;
+    catMixer.update(0.01);
 
-    catModel.rotation.z = Math.PI + 0.2;
+    // catModel.rotation.z = Math.PI + 0.2;
     // catModel.rotation.x += 0.02;
 
-    catModel.rotation.y = Math.PI - 0.4;
+    catModel.rotation.y = Math.PI + 0.4;
 
     renderer.render(scene, camera);
   }
