@@ -102,35 +102,35 @@ loadModel("./rabbit_rigged.glb", "rabbit", "glb");
 loadModel("./pigeon.glb", "bird", "glb");
 
 function animate() {
-  if (
-    dogModel &&
-    catModel &&
-    rabbitModel &&
-    birdModel &&
-    !document.getElementById("content")
-  ) {
-    document.body.innerHTML += `
-    <div id="content">
-        <div class="sections">
-         <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
-        </div>
-        <div class="sections">
-       <h1 class="headers"> Or a Playful Puppy</h1>
-        </div>
-        <div class="sections">
-        <h1 class="headers"> Maybe a Hopping Furball?</h1>
-         </div>
-         <div class="sections">
-        <h1 class="headers"> How About a Distinguished Singer?</h1>
-         </div>
-        
-      </div>
-    `;
-    document
-      .getElementById("loadingPage")
-      .parentNode.removeChild(document.getElementById("loadingPage"));
-    document.body.appendChild(renderer.domElement);
-  }
+  // if (
+  //   dogModel &&
+  //   catModel &&
+  //   rabbitModel &&
+  //   birdModel &&
+  //   !document.getElementById("content")
+  // ) {
+  //   document.body.innerHTML += `
+  //   <div id="content">
+  //       <div class="sections">
+  //        <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
+  //       </div>
+  //       <div class="sections">
+  //      <h1 class="headers"> Or a Playful Puppy</h1>
+  //       </div>
+  //       <div class="sections">
+  //       <h1 class="headers"> Maybe a Hopping Furball?</h1>
+  //        </div>
+  //        <div class="sections">
+  //       <h1 class="headers"> How About a Distinguished Singer?</h1>
+  //        </div>
+
+  //     </div>
+  //   `;
+  //   document
+  //     .getElementById("loadingPage")
+  //     .parentNode.removeChild(document.getElementById("loadingPage"));
+  //   document.body.appendChild(renderer.domElement);
+  // }
   requestAnimationFrame(animate);
   if (
     dogModel &&
