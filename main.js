@@ -79,12 +79,10 @@ function animate() {
         
       </div>
     `;
-    setTimeout(() => {
-      document
-        .getElementById("loadingPage")
-        .parentNode.removeChild(document.getElementById("loadingPage"));
-      document.body.appendChild(renderer.domElement);
-    }, 3000);
+    document
+      .getElementById("loadingPage")
+      .parentNode.removeChild(document.getElementById("loadingPage"));
+    document.body.appendChild(renderer.domElement);
   }
   requestAnimationFrame(animate);
   if (dogModel && dogMixer && catModel && document.getElementById("content")) {
