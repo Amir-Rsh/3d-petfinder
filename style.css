@@ -64,6 +64,11 @@ body {
   padding: 100px;
   border-radius: 50%;
 }
+.headers {
+  background-color: rgba(0, 100, 0, 50%);
+  border-radius: 4%;
+  padding: 30px;
+}
 @keyframes rotates {
   from {
     transform: rotate(0deg);

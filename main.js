@@ -72,21 +72,23 @@ function animate() {
     document.body.innerHTML += `
     <div id="content">
         <h1 id="firstHeader">
-         Are You Looking For a Cute Kitten?
+         <span class="headers">Are You Looking For a Cute Kitten?</span>
         </h1>
         <h1 id="secondHeader">
-        Or a Playful Puppy
+       <span class="headers"> Or a Playful Puppy</span>
         </h1>
         
       </div>
     `;
-    document
-      .getElementById("loadingPage")
-      .parentNode.removeChild(document.getElementById("loadingPage"));
-    document.body.appendChild(renderer.domElement);
+    setTimeout(() => {
+      document
+        .getElementById("loadingPage")
+        .parentNode.removeChild(document.getElementById("loadingPage"));
+      document.body.appendChild(renderer.domElement);
+    }, 3000);
   }
   requestAnimationFrame(animate);
-  if (dogModel && dogMixer && document.getElementById("content")) {
+  if (dogModel && dogMixer && catModel && document.getElementById("content")) {
     dogMixer.update(0.01);
 
     dogModel.position.z = 10;
