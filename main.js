@@ -29,15 +29,9 @@ pointLight.position.set(25, 25, 25);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-const dogTexture = new THREE.TextureLoader().load(
-  "/public/textures/Image_0.png"
-);
-const catTexture = new THREE.TextureLoader().load(
-  "/public/textures/model1.jpg"
-);
-const pillowTexture = new THREE.TextureLoader().load(
-  "/public/textures/model.jpg"
-);
+const dogTexture = new THREE.TextureLoader().load("Image_0.png");
+const catTexture = new THREE.TextureLoader().load("model1.jpg");
+const pillowTexture = new THREE.TextureLoader().load("model.jpg");
 
 function loadModel(path, character) {
   const loader = new FBXLoader();
@@ -55,7 +49,6 @@ function loadModel(path, character) {
       }
       if (character === "cat") {
         model.scale.set(0.1, 0.1, 0.1);
-        console.log(model.children[0].material[0].map);
         model.children[0].material[0].map = pillowTexture;
         model.children[0].material[1].map = catTexture;
 
@@ -70,8 +63,8 @@ function loadModel(path, character) {
   );
 }
 
-loadModel("/public/models/AnimatedDog.fbx", "dog");
-loadModel("/public/models/model.fbx", "cat");
+loadModel("AnimatedDog.fbx", "dog");
+loadModel("model.fbx", "cat");
 
 function animate() {
   if (dogModel && catModel && !document.getElementById("content")) {
