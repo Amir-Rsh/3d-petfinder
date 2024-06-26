@@ -278,4 +278,35 @@ window.handleScrollUp = () => {
   }
 };
 
+let startY = 0;
+let endY = 0;
+
+const handleTouchStart = (event) => {
+  // Capture the starting Y position of the touch
+  startY = event.touches[0].clientY;
+};
+
+const handleTouchMove = (event) => {
+  // Capture the current Y position of the touch
+  endY = event.touches[0].clientY;
+};
+
+const handleTouchEnd = () => {
+  const deltaY = startY - endY;
+
+  if (deltaY > 0) {
+    handleScrollUp();
+  } else if (deltaY < 0) {
+    handleScrollDown();
+  }
+
+  // Reset values
+  startY = 0;
+  endY = 0;
+};
+
+window.addEventListener("touchstart", handleTouchStart, false);
+window.addEventListener("touchmove", handleTouchMove, false);
+window.addEventListener("touchend", handleTouchEnd, false);
+
 animate();
