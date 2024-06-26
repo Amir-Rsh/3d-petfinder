@@ -80,7 +80,7 @@ function loadModel(path, character, format) {
         });
       }
       if (character === "bird") {
-        model.scale.set(6.5, 6.5, 6.5);
+        model.scale.set(5, 5, 5);
         birdModel = model;
         birdMixer = new THREE.AnimationMixer(model);
         geometry.animations.forEach((clip) => {
@@ -123,6 +123,7 @@ function animate() {
          <div class="sections">
         <h1 class="headers"> How About a Distinguished Singer?</h1>
          </div>
+    
 
       </div>
     `;
@@ -158,7 +159,7 @@ function animate() {
     rabbitMixer.update(0.01);
 
     birdModel.position.z = 30;
-    birdModel.position.y = 1;
+    birdModel.position.y = 3;
     birdModel.rotation.y = Math.PI / -4;
     birdMixer.update(0.01);
 

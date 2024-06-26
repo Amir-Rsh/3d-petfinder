@@ -4,6 +4,8 @@ canvas {
   left: 0;
   background-color: lightgreen;
   z-index: -1;
+  height: 100% !important;
+  width: 100% !important;
 }
 body {
   display: flex;
@@ -15,7 +17,7 @@ body {
   cursor: default;
 }
 .sections {
-  padding-top: 10dvh;
+  /* padding-top: 10vh; */
   text-align: center;
   width: 99dvw;
   height: 100vh;
@@ -49,9 +51,17 @@ body {
   background-color: rgba(0, 100, 0, 50%);
   border-radius: 4%;
   padding: 30px;
-  margin: 0 20px 0 20px;
+  margin: 10vh 20px 0 20px;
   width: fit-content;
   height: fit-content;
+}
+footer {
+  height: 20vh;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @keyframes rotates {
   from {
