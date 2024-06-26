@@ -295,9 +295,9 @@ const handleTouchEnd = () => {
   const deltaY = startY - endY;
 
   if (deltaY > 0) {
-    handleScrollUp();
-  } else if (deltaY < 0) {
     handleScrollDown();
+  } else if (deltaY < 0) {
+    handleScrollUp();
   }
 
   // Reset values
