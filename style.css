@@ -2,7 +2,6 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: lightgreen;
   z-index: -1;
   height: 100vh !important;
   width: 100vw !important;
@@ -12,10 +11,10 @@ body {
   margin: 0;
   background-color: lightgreen;
   cursor: default;
-  /* overflow: hidden; */
+  transition: background-color 1s ease;
+  overflow: hidden;
 }
 .sections {
-  /* padding-top: 10vh; */
   text-align: center;
   width: 99dvw;
   height: 100vh;
@@ -61,6 +60,19 @@ footer {
   justify-content: center;
   align-items: center;
 }
+.new-background {
+  background-color: lightblue;
+}
+.new-background2 {
+  background-color: lightsalmon;
+}
+.new-background3 {
+  background-color: plum;
+}
+.new-background4 {
+  background-color: lightgreen;
+}
+
 @keyframes rotates {
   from {
     transform: rotate(0deg);

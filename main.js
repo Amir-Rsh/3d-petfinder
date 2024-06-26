@@ -1,10 +1,10 @@
 import "./style.css";
 import * as THREE from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { FBXLoader } from "three-stdlib";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("lightgreen");
+scene.background = null;
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -107,32 +107,30 @@ function animate() {
     catModel &&
     rabbitModel &&
     birdModel &&
-    !document.getElementById("content")
+    !document.getElementById("dog")
   ) {
-    document.body.innerHTML += `
-    <div id="content">
-        <div class="sections">
-         <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
+    document.getElementById("content").innerHTML += `
+        <div id="cat" class="sections">
+          <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
         </div>
         <div id="dog" class="sections">
-       <h1 class="headers"> Or a Playful Puppy</h1>
+          <h1 class="headers">Or a Playful Puppy</h1>
         </div>
-        <div class="sections">
-        <h1 class="headers"> Maybe a Hopping Furball?</h1>
-         </div>
-         <div class="sections">
-        <h1 class="headers"> How About a Distinguished Singer?</h1>
-         </div>
-    
+        <div id="rabbit" class="sections">
+          <h1 class="headers">Maybe a Hopping Furball?</h1>
+        </div>
+        <div id="bird" class="sections">
+          <h1 class="headers">How About a Distinguished Singer?</h1>
+        </div>`;
 
-      </div>
-    `;
     document
       .getElementById("loadingPage")
       .parentNode.removeChild(document.getElementById("loadingPage"));
     document.body.appendChild(renderer.domElement);
   }
+
   requestAnimationFrame(animate);
+
   if (
     dogModel &&
     dogMixer &&
@@ -142,10 +140,9 @@ function animate() {
     rabbitMixer &&
     birdModel &&
     birdMixer &&
-    document.getElementById("content")
+    document.getElementById("dog")
   ) {
     dogMixer.update(0.01);
-
     dogModel.position.z = 10;
     dogModel.position.y = 1;
 
@@ -153,7 +150,7 @@ function animate() {
     catModel.rotation.y = Math.PI + 0.4;
 
     rabbitModel.position.z = 22;
-    rabbitModel.position.y = 3;
+    rabbitModel.position.y = 3.5;
     rabbitModel.position.x = 0.5;
     rabbitModel.rotation.y = Math.PI / -4;
     rabbitMixer.update(0.01);
@@ -167,11 +164,136 @@ function animate() {
   }
 }
 
-function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
-  camera.position.z = 10 - t * 0.01;
+function handleWheel(event) {
+  if (event.deltaY > 0) {
+    handleScrollDown();
+  } else if (event.deltaY < 0) {
+    handleScrollUp();
+  }
 }
 
-document.body.onscroll = moveCamera;
+function debounce(func, delay) {
+  let timeoutId;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(context, args);
+    }, delay);
+  };
+}
+
+const debouncedHandleWheel = debounce(handleWheel, 200); // Adjust delay as needed
+
+window.addEventListener("wheel", debouncedHandleWheel);
+
+let zoomOutTarget = camera.position.z + 8;
+let zoomInTarget = camera.position.z - 8;
+
+let clock = new THREE.Clock();
+let isZoomingOut = false;
+let isZoomingIn = false;
+
+function zoomOut() {
+  if (!isZoomingOut) {
+    zoomOutTarget = camera.position.z + 8; // Set the new target
+    isZoomingOut = true; // Indicate that a zoom-out animation is in progress
+    clock.start(); // Restart the clock
+  }
+
+  function animateZoom() {
+    let delta = clock.getDelta();
+    let step = 15 * delta; // Adjust the speed as necessary
+    if (camera.position.z < zoomOutTarget) {
+      camera.position.z += step;
+      requestAnimationFrame(animateZoom);
+    } else {
+      camera.position.z = zoomOutTarget; // Ensure it exactly reaches the target
+      isZoomingOut = false; // Reset the zooming state
+    }
+  }
+
+  animateZoom();
+}
+
+function zoomIn() {
+  if (!isZoomingIn) {
+    zoomInTarget = camera.position.z - 8; // Set the new target
+    isZoomingIn = true; // Indicate that a zoom-out animation is in progress
+    clock.start(); // Restart the clock
+  }
+
+  function animateZoom() {
+    let delta = clock.getDelta();
+    let step = 15 * delta; // Adjust the speed as necessary
+    if (camera.position.z > zoomInTarget) {
+      camera.position.z -= step;
+      requestAnimationFrame(animateZoom);
+    } else {
+      camera.position.z = zoomInTarget; // Ensure it exactly reaches the target
+      isZoomingIn = false; // Reset the zooming state
+    }
+  }
+
+  animateZoom();
+}
+
+window.handleScrollDown = () => {
+  if (camera.position.z === 10) {
+    const dogDiv = document.getElementById("dog");
+    dogDiv.scrollIntoView({ behavior: "smooth" });
+    document.body.classList.remove("new-background4");
+    document.body.classList.toggle("new-background");
+
+    zoomOut();
+  }
+  if (camera.position.z === 18) {
+    const rabbitDiv = document.getElementById("rabbit");
+    rabbitDiv.scrollIntoView({ behavior: "smooth" });
+    document.body.classList.remove("new-background");
+    document.body.classList.toggle("new-background2");
+
+    zoomOut();
+  }
+  if (camera.position.z === 26) {
+    const birdDiv = document.getElementById("bird");
+    birdDiv.scrollIntoView({ behavior: "smooth" });
+    document.body.classList.remove("new-background2");
+    document.body.classList.toggle("new-background3");
+
+    zoomOut();
+  }
+};
+
+window.handleScrollUp = () => {
+  if (camera.position.z === 18) {
+    document.body.classList.remove("new-background");
+    document.body.classList.toggle("new-background4");
+
+    const catDiv = document.getElementById("cat");
+    catDiv.scrollIntoView({ behavior: "smooth" });
+
+    zoomIn();
+  }
+  if (camera.position.z === 26) {
+    document.body.classList.remove("new-background2");
+    document.body.classList.toggle("new-background");
+
+    const dogDiv = document.getElementById("dog");
+    dogDiv.scrollIntoView({ behavior: "smooth" });
+
+    zoomIn();
+  }
+  if (camera.position.z === 34) {
+    document.body.classList.remove("new-background3");
+    document.body.classList.toggle("new-background2");
+
+    const rabbitDiv = document.getElementById("rabbit");
+    rabbitDiv.scrollIntoView({ behavior: "smooth" });
+
+    zoomIn();
+  }
+};
 
 animate();
