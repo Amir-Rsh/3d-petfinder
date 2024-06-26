@@ -114,13 +114,13 @@ function animate() {
           <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
         </div>
         <div id="dog" class="sections">
-          <h1 class="headers">Or a Playful Puppy</h1>
+          <h1 id='dogHeader' class="headers">Or a Playful Puppy</h1>
         </div>
         <div id="rabbit" class="sections">
-          <h1 class="headers">Maybe a Hopping Furball?</h1>
+          <h1 id="rabbitHeader" class="headers">Maybe a Hopping Furball?</h1>
         </div>
         <div id="bird" class="sections">
-          <h1 class="headers">How About a Distinguished Singer?</h1>
+          <h1 id="birdHeader" class="headers">How About a Distinguished Singer?</h1>
         </div>`;
 
     document
@@ -172,21 +172,7 @@ function handleWheel(event) {
   }
 }
 
-function debounce(func, delay) {
-  let timeoutId;
-  return function () {
-    const context = this;
-    const args = arguments;
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(context, args);
-    }, delay);
-  };
-}
-
-const debouncedHandleWheel = debounce(handleWheel, 200); // Adjust delay as needed
-
-window.addEventListener("wheel", debouncedHandleWheel);
+window.addEventListener("wheel", handleWheel);
 
 let zoomOutTarget = camera.position.z + 8;
 let zoomInTarget = camera.position.z - 8;
@@ -197,20 +183,20 @@ let isZoomingIn = false;
 
 function zoomOut() {
   if (!isZoomingOut) {
-    zoomOutTarget = camera.position.z + 8; // Set the new target
-    isZoomingOut = true; // Indicate that a zoom-out animation is in progress
-    clock.start(); // Restart the clock
+    zoomOutTarget = camera.position.z + 8;
+    isZoomingOut = true;
+    clock.start();
   }
 
   function animateZoom() {
     let delta = clock.getDelta();
-    let step = 15 * delta; // Adjust the speed as necessary
+    let step = 15 * delta;
     if (camera.position.z < zoomOutTarget) {
       camera.position.z += step;
       requestAnimationFrame(animateZoom);
     } else {
-      camera.position.z = zoomOutTarget; // Ensure it exactly reaches the target
-      isZoomingOut = false; // Reset the zooming state
+      camera.position.z = zoomOutTarget;
+      isZoomingOut = false;
     }
   }
 
@@ -219,9 +205,9 @@ function zoomOut() {
 
 function zoomIn() {
   if (!isZoomingIn) {
-    zoomInTarget = camera.position.z - 8; // Set the new target
-    isZoomingIn = true; // Indicate that a zoom-out animation is in progress
-    clock.start(); // Restart the clock
+    zoomInTarget = camera.position.z - 8;
+    isZoomingIn = true;
+    clock.start();
   }
 
   function animateZoom() {
@@ -231,36 +217,35 @@ function zoomIn() {
       camera.position.z -= step;
       requestAnimationFrame(animateZoom);
     } else {
-      camera.position.z = zoomInTarget; // Ensure it exactly reaches the target
-      isZoomingIn = false; // Reset the zooming state
+      camera.position.z = zoomInTarget;
+      isZoomingIn = false;
     }
   }
 
   animateZoom();
 }
-
 window.handleScrollDown = () => {
   if (camera.position.z === 10) {
+    document.body.classList.value = "new-background";
+
     const dogDiv = document.getElementById("dog");
     dogDiv.scrollIntoView({ behavior: "smooth" });
-    document.body.classList.remove("new-background4");
-    document.body.classList.toggle("new-background");
 
     zoomOut();
   }
   if (camera.position.z === 18) {
+    document.body.classList.value = "new-background2";
+
     const rabbitDiv = document.getElementById("rabbit");
     rabbitDiv.scrollIntoView({ behavior: "smooth" });
-    document.body.classList.remove("new-background");
-    document.body.classList.toggle("new-background2");
 
     zoomOut();
   }
   if (camera.position.z === 26) {
+    document.body.classList.value = "new-background3";
+
     const birdDiv = document.getElementById("bird");
     birdDiv.scrollIntoView({ behavior: "smooth" });
-    document.body.classList.remove("new-background2");
-    document.body.classList.toggle("new-background3");
 
     zoomOut();
   }
@@ -268,8 +253,7 @@ window.handleScrollDown = () => {
 
 window.handleScrollUp = () => {
   if (camera.position.z === 18) {
-    document.body.classList.remove("new-background");
-    document.body.classList.toggle("new-background4");
+    document.body.classList.value = "new-background4";
 
     const catDiv = document.getElementById("cat");
     catDiv.scrollIntoView({ behavior: "smooth" });
@@ -277,8 +261,7 @@ window.handleScrollUp = () => {
     zoomIn();
   }
   if (camera.position.z === 26) {
-    document.body.classList.remove("new-background2");
-    document.body.classList.toggle("new-background");
+    document.body.classList.value = "new-background";
 
     const dogDiv = document.getElementById("dog");
     dogDiv.scrollIntoView({ behavior: "smooth" });
@@ -286,8 +269,7 @@ window.handleScrollUp = () => {
     zoomIn();
   }
   if (camera.position.z === 34) {
-    document.body.classList.remove("new-background3");
-    document.body.classList.toggle("new-background2");
+    document.body.classList.value = "new-background2";
 
     const rabbitDiv = document.getElementById("rabbit");
     rabbitDiv.scrollIntoView({ behavior: "smooth" });

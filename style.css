@@ -11,7 +11,7 @@ body {
   margin: 0;
   background-color: lightgreen;
   cursor: default;
-  transition: background-color 1s ease;
+  transition: background-color 2s ease;
   overflow: hidden;
 }
 .sections {
@@ -51,6 +51,16 @@ body {
   margin: 10vh 20px 0 20px;
   width: fit-content;
   height: fit-content;
+  transition: background-color 2s ease;
+}
+#dogHeader {
+  background-color: rgba(34, 34, 135, 0.5);
+}
+#rabbitHeader {
+  background-color: rgba(122, 67, 20, 0.5);
+}
+#birdHeader {
+  background-color: rgba(61, 60, 58, 0.5);
 }
 footer {
   height: 20vh;
