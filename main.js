@@ -114,7 +114,7 @@ function animate() {
         <div class="sections">
          <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
         </div>
-        <div class="sections">
+        <div id="dog" class="sections">
        <h1 class="headers"> Or a Playful Puppy</h1>
         </div>
         <div class="sections">

@@ -4,17 +4,15 @@ canvas {
   left: 0;
   background-color: lightgreen;
   z-index: -1;
-  height: 100% !important;
-  width: 100% !important;
+  height: 100vh !important;
+  width: 100vw !important;
 }
 body {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* flex-direction: column; */
   margin: 0;
   background-color: lightgreen;
   cursor: default;
+  /* overflow: hidden; */
 }
 .sections {
   /* padding-top: 10vh; */
