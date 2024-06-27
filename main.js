@@ -2,6 +2,7 @@ import "./style.css";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
+import { log } from "three/examples/jsm/nodes/Nodes";
 
 const scene = new THREE.Scene();
 scene.background = null;
@@ -111,16 +112,279 @@ function animate() {
   ) {
     document.getElementById("content").innerHTML += `
         <div id="cat" class="sections">
+        <div
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+      position: absolute;
+      transform: translateX(102dvw);
+      padding: 20px 20px 70px 20px;
+      height: 100vh
+    "
+  >
+    <h1 style="margin-top: 90px">Meet The Cats</h1>
+    <div
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+    <button id="catBack" onClick="handleRotateLeft(event)" class="back">back</button>
+
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Miss Fluffington</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Fast & Furrious</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Tony Pawrker</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Jane Pawsten</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/2194261/pexels-photo-2194261.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Baguette</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/1472999/pexels-photo-1472999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Furry Pawter</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/257532/pexels-photo-257532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Meowchaelangelo</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/615369/pexels-photo-615369.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Midnight Meowriachi</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/979247/pexels-photo-979247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>MeowDiePie</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/1521304/pexels-photo-1521304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Domestic Bad Hair Day</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/4587959/pexels-photo-4587959.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div style="display: flex"></div>
+    <div style="display: flex"></div>
+  </div>
           <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
+          <button onClick="handleRotateRight(event)" class="buttons" id="catButton">Meet<br />  The<br />  Cats</button>
         </div>
         <div id="dog" class="sections">
-          <h1 id='dogHeader' class="headers">Or a Playful Puppy</h1>
+        <div
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+      position: absolute;
+      transform: translateX(102dvw);
+      padding: 20px 20px 70px 20px;
+      height: 100vh
+    "
+  >
+    <h1 style="margin-top: 90px">Meet The Cats</h1>
+    <div
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+    <button id="catBack" onClick="handleRotateLeft(event)" class="back">back</button>
+
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Miss Fluffington</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Fast & Furrious</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Tony Pawrker</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Jane Pawsten</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/2194261/pexels-photo-2194261.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Baguette</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/1472999/pexels-photo-1472999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Furry Pawter</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/257532/pexels-photo-257532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Meowchaelangelo</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/615369/pexels-photo-615369.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Midnight Meowriachi</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/979247/pexels-photo-979247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>MeowDiePie</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/1521304/pexels-photo-1521304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="stickers">
+        <div class="stickerContnet">
+          <h3>Domestic Bad Hair Day</h3>
+          <img
+            class="stickerImages"
+            src="https://images.pexels.com/photos/4587959/pexels-photo-4587959.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div style="display: flex"></div>
+    <div style="display: flex"></div>
+  </div>
+          <h1 id='dogHeader' class="headers">Or a Playful Puppy</h1> 
+          <button onClick="handleRotateRight(event)" class="buttons" id="dogButton">Meet<br />  The <br /> Dogs</button>
+
         </div>
         <div id="rabbit" class="sections">
-          <h1 id="rabbitHeader" class="headers">Maybe a Hopping Furball?</h1>
+          <h1 id="rabbitHeader" class="headers">Maybe a Hopping Furball?</h1> 
+          <button onClick="handleRotateRight(event)" class="buttons"  id="rabbitButton">Meet<br /> The<br />  Rabbits</button>
+
         </div>
         <div id="bird" class="sections">
-          <h1 id="birdHeader" class="headers">How About a Distinguished Singer?</h1>
+          <h1 id="birdHeader" class="headers">How About a Distinguished Singer?</h1>          
+          <button onClick="handleRotateRight(event)" class="buttons"  id="birdButton">Meet<br />  The <br /> Birds</button>
+
         </div>`;
 
     document
@@ -171,8 +435,6 @@ function handleWheel(event) {
     handleScrollUp();
   }
 }
-
-window.addEventListener("wheel", handleWheel);
 
 let zoomOutTarget = camera.position.z + 8;
 let zoomInTarget = camera.position.z - 8;
@@ -293,8 +555,8 @@ const handleTouchMove = (event) => {
 
 const handleTouchEnd = () => {
   const deltaY = startY - endY;
-
-  if (deltaY > 0) {
+  if (endY === 0) {
+  } else if (deltaY > 0) {
     handleScrollDown();
   } else if (deltaY < 0) {
     handleScrollUp();
@@ -305,8 +567,93 @@ const handleTouchEnd = () => {
   endY = 0;
 };
 
-window.addEventListener("touchstart", handleTouchStart, false);
-window.addEventListener("touchmove", handleTouchMove, false);
-window.addEventListener("touchend", handleTouchEnd, false);
+let isRotatingRight = false;
+let rotateTargetRight = camera.rotation.y - Math.PI / 2;
+
+let isRotatingLeft = false;
+let rotateTargetLeft = camera.rotation.y + Math.PI / 2;
+
+function rotateRight() {
+  if (!isRotatingRight) {
+    rotateTargetRight = camera.rotation.y - Math.PI / 2;
+    isRotatingRight = true;
+    clock.start();
+  }
+
+  function animateRotate() {
+    let delta = clock.getDelta();
+    let step = 1 * delta;
+    if (camera.rotation.y > rotateTargetRight) {
+      camera.rotation.y -= step;
+      requestAnimationFrame(animateRotate);
+    } else {
+      camera.rotation.y = rotateTargetRight;
+      isRotatingRight = false;
+    }
+  }
+
+  animateRotate();
+}
+
+function rotateLeft() {
+  if (!isRotatingLeft) {
+    rotateTargetLeft = camera.rotation.y + Math.PI / 2;
+    isRotatingLeft = true;
+    clock.start();
+  }
+
+  function animateRotate() {
+    let delta = clock.getDelta();
+    let step = 1 * delta;
+    if (camera.rotation.y < rotateTargetLeft) {
+      camera.rotation.y += step;
+      requestAnimationFrame(animateRotate);
+    } else {
+      camera.rotation.y = rotateTargetLeft;
+      isRotatingLeft = false;
+    }
+  }
+
+  animateRotate();
+}
+
+window.handleRotateRight = (event) => {
+  if (event.target.id === "catButton" || event.target.id === "dogButton") {
+    document.getElementById("cat").classList.toggle("rotate");
+    document.getElementById("dog").classList.toggle("rotate");
+    document.getElementById("rabbit").classList.toggle("rotate");
+    document.getElementById("bird").classList.toggle("rotate");
+
+    console.log(event.target.id);
+  }
+  rotateRight();
+  removeEventListeners();
+};
+window.handleRotateLeft = (event) => {
+  if (event.target.id === "catBack") {
+    document.getElementById("cat").classList.toggle("rotate");
+    document.getElementById("dog").classList.toggle("rotate");
+    document.getElementById("rabbit").classList.toggle("rotate");
+    document.getElementById("bird").classList.toggle("rotate");
+
+    addEventListeners();
+  }
+  rotateLeft();
+};
+function addEventListeners() {
+  window.addEventListener("touchstart", handleTouchStart, false);
+  window.addEventListener("touchmove", handleTouchMove, false);
+  window.addEventListener("touchend", handleTouchEnd, false);
+  window.addEventListener("wheel", handleWheel);
+}
+
+function removeEventListeners() {
+  window.removeEventListener("touchstart", handleTouchStart, false);
+  window.removeEventListener("touchmove", handleTouchMove, false);
+  window.removeEventListener("touchend", handleTouchEnd, false);
+  window.removeEventListener("wheel", handleWheel);
+}
+
+addEventListeners();
 
 animate();
