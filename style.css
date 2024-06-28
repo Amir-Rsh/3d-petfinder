@@ -117,8 +117,7 @@ canvas {
 /* THE CATS PAGE */
 
 .stickers {
-  margin-top: auto;
-  margin: 10px auto 50px auto;
+  margin: 50px 10px 0px 10px;
   text-align: center;
   height: 400px;
   width: 300px;
@@ -150,6 +149,8 @@ canvas {
   border: none;
   border-radius: 8%;
   font-weight: bold;
+  background-color: #000000;
+  color: lightgreen;
 }
 #catList {
   display: flex;
@@ -171,9 +172,42 @@ canvas {
   overflow: auto;
   position: relative;
   padding: 20px 20px 70px 20px;
-  height: 100vh;
-  transform: translateX(100vw);
+  height: 90vh;
+  left: 104vw;
+  transition: transform 2s ease;
+}
+#rabbitList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  position: relative;
+  padding: 20px 20px 70px 20px;
+  height: 90vh;
+  left: 104vw;
+  transition: transform 2s ease;
+}
+#birdList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  position: relative;
+  padding: 20px 20px 70px 20px;
+  height: 90vh;
+  left: 104vw;
+  transition: transform 2s ease;
 }
 .rotate {
   transform: translateX(-100vw);
+}
+.animalsDiv {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
 }

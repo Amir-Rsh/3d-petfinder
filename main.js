@@ -113,16 +113,8 @@ function animate() {
     document.getElementById("content").innerHTML += `
         <div id="cat" class="sections">
         <div id="catList">
-    <h1 style="margin-top: 90px">Meet The Cats</h1>
-    <div
-      style="
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        overflow:auto
-      "
-    >
+    
+    <div class="animalsDiv" >
     <button id="catBack" onClick="handleRotateLeft(event)" class="back">back</button>
 
       <div class="stickers">
@@ -231,18 +223,10 @@ function animate() {
           <button onClick="handleRotateRight(event)" class="buttons" id="catButton">Meet<br />  The<br />  Cats</button>
         </div>
         <div id="dog" class="sections">
-        <div id="catList">
-    <h1 style="margin-top: 90px">Meet The Cats</h1>
-    <div
-      style="
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        overflow:auto
-      "
-    >
-    <button id="catBack" onClick="handleRotateLeft(event)" class="back">back</button>
+        <div id="dogList">
+    
+    <div class="animalsDiv">
+    <button id="dogBack" onClick="handleRotateLeft(event)" class="back">back</button>
 
       <div class="stickers">
         <div class="stickerContnet">
@@ -352,18 +336,10 @@ function animate() {
 
         </div>
         <div id="rabbit" class="sections">
-        <div id="catList">
-    <h1 style="margin-top: 90px">Meet The Cats</h1>
-    <div
-      style="
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        overflow:auto
-      "
+        <div id="rabbitList">
+    <div class="animalsDiv"
     >
-    <button id="catBack" onClick="handleRotateLeft(event)" class="back">back</button>
+    <button id="rabbitBack" onClick="handleRotateLeft(event)" class="back">back</button>
 
       <div class="stickers">
         <div class="stickerContnet">
@@ -472,18 +448,9 @@ function animate() {
 
         </div>
         <div id="bird" class="sections">
-        <div id="catList">
-    <h1 style="margin-top: 90px">Meet The Cats</h1>
-    <div
-      style="
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        overflow:auto
-      "
-    >
-    <button id="catBack" onClick="handleRotateLeft(event)" class="back">back</button>
+        <div id="birdList">
+    <div class="animalsDiv">
+    <button id="birdBack" onClick="handleRotateLeft(event)" class="back">< class="fa-solid fa-backward-step"></i></button>
 
       <div class="stickers">
         <div class="stickerContnet">
@@ -825,12 +792,25 @@ function rotateLeft() {
 }
 
 window.handleRotateRight = (event) => {
-  if (event.target.id === "catButton" || event.target.id === "dogButton") {
+  if (event.target.id === "catButton") {
     document.getElementsByClassName("headers")[0].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[0].classList.toggle("rotate");
     document.getElementById("catList").classList.toggle("rotate");
-
-    console.log(event.target.id);
+  }
+  if (event.target.id === "dogButton") {
+    document.getElementsByClassName("headers")[1].classList.toggle("rotate");
+    document.getElementsByClassName("buttons")[1].classList.toggle("rotate");
+    document.getElementById("dogList").classList.toggle("rotate");
+  }
+  if (event.target.id === "rabbitButton") {
+    document.getElementsByClassName("headers")[2].classList.toggle("rotate");
+    document.getElementsByClassName("buttons")[2].classList.toggle("rotate");
+    document.getElementById("rabbitList").classList.toggle("rotate");
+  }
+  if (event.target.id === "birdButton") {
+    document.getElementsByClassName("headers")[3].classList.toggle("rotate");
+    document.getElementsByClassName("buttons")[3].classList.toggle("rotate");
+    document.getElementById("birdList").classList.toggle("rotate");
   }
   rotateRight();
   removeEventListeners();
@@ -840,9 +820,23 @@ window.handleRotateLeft = (event) => {
     document.getElementsByClassName("headers")[0].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[0].classList.toggle("rotate");
     document.getElementById("catList").classList.toggle("rotate");
-
-    addEventListeners();
   }
+  if (event.target.id === "dogBack") {
+    document.getElementsByClassName("headers")[1].classList.toggle("rotate");
+    document.getElementsByClassName("buttons")[1].classList.toggle("rotate");
+    document.getElementById("dogList").classList.toggle("rotate");
+  }
+  if (event.target.id === "rabbitBack") {
+    document.getElementsByClassName("headers")[2].classList.toggle("rotate");
+    document.getElementsByClassName("buttons")[2].classList.toggle("rotate");
+    document.getElementById("rabbitList").classList.toggle("rotate");
+  }
+  if (event.target.id === "birdBack") {
+    document.getElementsByClassName("headers")[3].classList.toggle("rotate");
+    document.getElementsByClassName("buttons")[3].classList.toggle("rotate");
+    document.getElementById("birdList").classList.toggle("rotate");
+  }
+  addEventListeners();
   rotateLeft();
 };
 function addEventListeners() {
