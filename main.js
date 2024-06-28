@@ -230,7 +230,7 @@ function animate() {
 
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Miss Fluffington</h3>
+          <h3>Bark anthony</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -240,7 +240,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Fast & Furrious</h3>
+          <h3>Papa mia</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/160846/french-bulldog-summer-smile-joy-160846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -250,7 +250,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Tony Pawrker</h3>
+          <h3>Barkinson</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/333083/pexels-photo-333083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -260,7 +260,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Jane Pawsten</h3>
+          <h3>El macho</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/551628/pexels-photo-551628.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -270,7 +270,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Baguette</h3>
+          <h3>Sub woofer</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -280,7 +280,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Furry Pawter</h3>
+          <h3>Pawlina</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/128817/pexels-photo-128817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -290,7 +290,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Meowchaelangelo</h3>
+          <h3>Wagsalot</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/1938126/pexels-photo-1938126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -300,7 +300,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Midnight Meowriachi</h3>
+          <h3>Tail chaser</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/1490908/pexels-photo-1490908.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -310,7 +310,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>MeowDiePie</h3>
+          <h3>Tom barker</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -320,7 +320,7 @@ function animate() {
       </div>
       <div class="dogStickers">
         <div class="stickerContnet">
-          <h3>Domestic Bad Hair Day</h3>
+          <h3>Virginia woof</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/981062/pexels-photo-981062.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -343,7 +343,7 @@ function animate() {
 
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Miss Fluffington</h3>
+          <h3>Furriosa</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/1510544/pexels-photo-1510544.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -353,7 +353,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Fast & Furrious</h3>
+          <h3>Cotton tail</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/583676/pexels-photo-583676.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -363,7 +363,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Tony Pawrker</h3>
+          <h3>Hugs honey</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/383557/pexels-photo-383557.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -373,7 +373,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Jane Pawsten</h3>
+          <h3>Bugs bunny II</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/3828097/pexels-photo-3828097.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -383,7 +383,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Baguette</h3>
+          <h3>Bolt</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/2883510/pexels-photo-2883510.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -393,7 +393,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Furry Pawter</h3>
+          <h3>Pochahoptas</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/2061754/pexels-photo-2061754.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -403,7 +403,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Meowchaelangelo</h3>
+          <h3>Bunny G Jumpin</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/96442/pexels-photo-96442.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -413,7 +413,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Midnight Meowriachi</h3>
+          <h3>Anthony HOPSkins</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/1074644/pexels-photo-1074644.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -423,7 +423,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>MeowDiePie</h3>
+          <h3>Carroteer</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/2389073/pexels-photo-2389073.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -433,7 +433,7 @@ function animate() {
       </div>
       <div class="rabbitStickers">
         <div class="stickerContnet">
-          <h3>Domestic Bad Hair Day</h3>
+          <h3>The hoppit</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/3730206/pexels-photo-3730206.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -454,7 +454,7 @@ function animate() {
 
       <div class="birdStickers">
         <div class="stickerContnet">
-          <h3>Miss Fluffington</h3>
+          <h3>Her Highness</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -464,7 +464,7 @@ function animate() {
       </div>
       <div class="birdStickers">
         <div class="stickerContnet">
-          <h3>Fast & Furrious</h3>
+          <h3>Talon</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/97533/pexels-photo-97533.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -474,7 +474,7 @@ function animate() {
       </div>
       <div class="birdStickers">
         <div class="stickerContnet">
-          <h3>Tony Pawrker</h3>
+          <h3>Threat from above</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/75973/pexels-photo-75973.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -484,7 +484,7 @@ function animate() {
       </div>
       <div class="birdStickers">
         <div class="stickerContnet">
-          <h3>Jane Pawsten</h3>
+          <h3>Crumb hunter</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/596792/pexels-photo-596792.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -494,7 +494,7 @@ function animate() {
       </div>
       <div class="birdStickers">
         <div class="stickerContnet">
-          <h3>Baguette</h3>
+          <h3>Mr. fetherington</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/2400030/pexels-photo-2400030.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -504,7 +504,7 @@ function animate() {
       </div>
       <div class="birdStickers">
         <div class="stickerContnet">
-          <h3>Furry Pawter</h3>
+          <h3>Tweeterson</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/85674/duck-mandarin-ducks-aix-galericulata-duck-bird-85674.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -514,7 +514,7 @@ function animate() {
       </div>
       <div class="birdStickers">
         <div class="stickerContnet">
-          <h3>Meowchaelangelo</h3>
+          <h3>Birdnadette</h3>
           <img
             class="stickerImages"
             src="https://images.pexels.com/photos/86596/owl-bird-eyes-eagle-owl-86596.jpeg?auto=compress&cs=tinysrgb&w=600"
