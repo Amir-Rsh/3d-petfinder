@@ -124,6 +124,30 @@ canvas {
   background-size: cover;
   background-image: url("https://pngimg.com/d/sticky_note_PNG18886.png");
 }
+.dogStickers {
+  margin: 50px 10px 0px 10px;
+  text-align: center;
+  height: 400px;
+  width: 300px;
+  background-size: cover;
+  background-image: url("https://pngimg.com/d/sticky_note_PNG18885.png");
+}
+.rabbitStickers {
+  margin: 50px 10px 0px 10px;
+  text-align: center;
+  height: 400px;
+  width: 300px;
+  background-size: cover;
+  background-image: url("https://png.pngtree.com/png-vector/20220207/ourmid/pngtree-vector---pinned-note-paper-red-simple-stock-vector-png-image_3312687.png");
+}
+.birdStickers {
+  margin: 50px 10px 0px 10px;
+  text-align: center;
+  height: 400px;
+  width: 300px;
+  background-size: cover;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/022/354/041/non_2x/white-sticky-note-free-png.png");
+}
 .stickerContnet {
   transform: translateY(40px);
 }
@@ -132,14 +156,7 @@ canvas {
   height: 200px;
   border-radius: 5%;
 }
-.dogStickers {
-  margin: 10px auto 50px auto;
-  text-align: center;
-  height: 400px;
-  width: 300px;
-  background-size: cover;
-  background-image: url("https://pngimg.com/d/sticky_note_PNG18885.png");
-}
+
 .back {
   position: absolute;
   top: 40px;
@@ -151,6 +168,7 @@ canvas {
   font-weight: bold;
   background-color: #000000;
   color: lightgreen;
+  z-index: 2;
 }
 #catList {
   display: flex;
@@ -210,4 +228,19 @@ canvas {
   justify-content: center;
   align-items: center;
   overflow: auto;
+}
+#catBack {
+  background-color: darkgreen;
+}
+#dogBack {
+  color: lightblue;
+  background-color: rgb(27, 27, 90);
+}
+#rabbitBack {
+  color: lightsalmon;
+  background-color: brown;
+}
+#birdBack {
+  color: plum;
+  background-color: darkviolet;
 }
