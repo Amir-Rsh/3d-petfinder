@@ -742,14 +742,14 @@ const handleTouchEnd = () => {
 };
 
 let isRotatingRight = false;
-let rotateTargetRight = camera.rotation.y - Math.PI / 2;
+let rotateTargetRight = camera.rotation.y - Math.PI / 2.2;
 
 let isRotatingLeft = false;
-let rotateTargetLeft = camera.rotation.y + Math.PI / 2;
+let rotateTargetLeft = camera.rotation.y + Math.PI / 2.2;
 
 function rotateRight() {
   if (!isRotatingRight) {
-    rotateTargetRight = camera.rotation.y - Math.PI / 2;
+    rotateTargetRight = camera.rotation.y - Math.PI / 2.2;
     isRotatingRight = true;
     clock.start();
   }
@@ -771,7 +771,7 @@ function rotateRight() {
 
 function rotateLeft() {
   if (!isRotatingLeft) {
-    rotateTargetLeft = camera.rotation.y + Math.PI / 2;
+    rotateTargetLeft = camera.rotation.y + Math.PI / 2.2;
     isRotatingLeft = true;
     clock.start();
   }

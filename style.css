@@ -92,6 +92,8 @@ canvas {
   padding: 20px;
   line-height: 40px;
   transition: transform 2s ease;
+
+  animation: buttonMove 1s infinite;
 }
 #catButton {
   background-color: rgba(0, 100, 0, 50%);
@@ -243,4 +245,9 @@ canvas {
 #birdBack {
   color: plum;
   background-color: darkviolet;
+}
+@keyframes buttonMove {
+  50% {
+    margin-top: 41vh;
+  }
 }
