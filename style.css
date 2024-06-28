@@ -14,18 +14,6 @@ canvas {
   height: 100vh !important;
   width: 100vw !important;
 }
-nav {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  background-color: rgba(129, 124, 112, 0.5);
-}
-.navElement {
-  margin: auto;
-}
 .sections {
   text-align: center;
   width: 99dvw;
@@ -33,8 +21,7 @@ nav {
   margin: 0;
   display: flex;
   justify-content: center;
-  transition: transform 2s ease;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 #loadingPage {
   display: flex;
@@ -42,7 +29,7 @@ nav {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   font-size: 30px;
   font-weight: bold;
   color: #000000;
@@ -66,7 +53,7 @@ nav {
   margin: 10vh 20px 0 20px;
   width: fit-content;
   height: fit-content;
-  transition: background-color 2s ease;
+  transition: transform 2s ease;
 }
 #dogHeader {
   background-color: rgba(34, 34, 135, 0.5);
@@ -77,14 +64,7 @@ nav {
 #birdHeader {
   background-color: rgba(61, 60, 58, 0.5);
 }
-footer {
-  height: 20vh;
-  width: 100%;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .new-background {
   background-color: lightblue;
 }
@@ -111,6 +91,7 @@ footer {
   align-items: center;
   padding: 20px;
   line-height: 40px;
+  transition: transform 2s ease;
 }
 #catButton {
   background-color: rgba(0, 100, 0, 50%);
@@ -136,6 +117,7 @@ footer {
 /* THE CATS PAGE */
 
 .stickers {
+  margin-top: auto;
   margin: 10px auto 50px auto;
   text-align: center;
   height: 400px;
@@ -159,9 +141,6 @@ footer {
   background-size: cover;
   background-image: url("https://pngimg.com/d/sticky_note_PNG18885.png");
 }
-.rotate {
-  transform: translateX(-100vw);
-}
 .back {
   position: absolute;
   top: 40px;
@@ -171,4 +150,30 @@ footer {
   border: none;
   border-radius: 8%;
   font-weight: bold;
+}
+#catList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  position: relative;
+  padding: 20px 20px 70px 20px;
+  height: 90vh;
+  left: 104vw;
+  transition: transform 2s ease;
+}
+#dogList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  position: relative;
+  padding: 20px 20px 70px 20px;
+  height: 100vh;
+  transform: translateX(100vw);
+}
+.rotate {
+  transform: translateX(-100vw);
 }
