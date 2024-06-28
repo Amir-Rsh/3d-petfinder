@@ -94,6 +94,8 @@ canvas {
   transition: transform 2s ease;
   cursor: pointer;
   animation: buttonMove 1s infinite;
+  position: absolute;
+  right: 20px;
 }
 #catButton {
   background-color: rgba(0, 100, 0, 50%);
@@ -181,9 +183,9 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  padding: 20px 20px 70px 20px;
-  height: 90vh;
-  left: 104vw;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
   transition: transform 2s ease;
 }
 #dogList {
@@ -193,9 +195,9 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  padding: 20px 20px 70px 20px;
-  height: 90vh;
-  left: 104vw;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
   transition: transform 2s ease;
 }
 #rabbitList {
@@ -205,9 +207,9 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  padding: 20px 20px 70px 20px;
-  height: 90vh;
-  left: 104vw;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
   transition: transform 2s ease;
 }
 #birdList {
@@ -217,9 +219,9 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  padding: 20px 20px 70px 20px;
-  height: 90vh;
-  left: 104vw;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
   transition: transform 2s ease;
 }
 .rotate {
@@ -232,6 +234,8 @@ canvas {
   justify-content: center;
   align-items: center;
   overflow: auto;
+  width: 90vw;
+  height: 100vh;
 }
 #catBack {
   background-color: darkgreen;
