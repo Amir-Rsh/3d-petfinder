@@ -115,7 +115,7 @@ function animate() {
         <div id="catList">
     
     <div class="animalsDiv" >
-    <button id="catBack" onClick="handleRotateLeft(event)" class="back">back</button>
+    <button id="catBack" onClick="handleRotateLeft(event)" class="back"><i class="fa-solid fa-arrow-left"></i> Back</button>
 
       <div class="stickers">
         <div class="stickerContnet">
@@ -226,7 +226,7 @@ function animate() {
         <div id="dogList">
     
     <div class="animalsDiv">
-    <button id="dogBack" onClick="handleRotateLeft(event)" class="back">back</button>
+    <button id="dogBack" onClick="handleRotateLeft(event)" class="back"><i class="fa-solid fa-arrow-left"></i> Back</button>
 
       <div class="dogStickers">
         <div class="stickerContnet">
@@ -339,7 +339,7 @@ function animate() {
         <div id="rabbitList">
     <div class="animalsDiv"
     >
-    <button id="rabbitBack" onClick="handleRotateLeft(event)" class="back">back</button>
+    <button id="rabbitBack" onClick="handleRotateLeft(event)" class="back"><i class="fa-solid fa-arrow-left"></i> Back</button>
 
       <div class="rabbitStickers">
         <div class="stickerContnet">
@@ -450,7 +450,7 @@ function animate() {
         <div id="bird" class="sections">
         <div id="birdList">
     <div class="animalsDiv">
-    <button id="birdBack" onClick="handleRotateLeft(event)" class="back"><i class="fa-solid fa-backward-step"></i></button>
+    <button id="birdBack" onClick="handleRotateLeft(event)" class="back"><i class="fa-solid fa-arrow-left"></i> Back</button>
 
       <div class="birdStickers">
         <div class="stickerContnet">

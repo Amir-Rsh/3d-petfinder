@@ -92,7 +92,7 @@ canvas {
   padding: 20px;
   line-height: 40px;
   transition: transform 2s ease;
-
+  cursor: pointer;
   animation: buttonMove 1s infinite;
 }
 #catButton {
@@ -171,6 +171,8 @@ canvas {
   background-color: #000000;
   color: lightgreen;
   z-index: 2;
+  cursor: pointer;
+  animation: backBlink 1s infinite;
 }
 #catList {
   display: flex;
@@ -249,5 +251,10 @@ canvas {
 @keyframes buttonMove {
   50% {
     margin-top: 41vh;
+  }
+}
+@keyframes backBlink {
+  50% {
+    transform: scale(1.2);
   }
 }
