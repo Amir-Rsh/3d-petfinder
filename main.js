@@ -2,7 +2,6 @@ import "./style.css";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
-import { log } from "three/examples/jsm/nodes/Nodes";
 
 const scene = new THREE.Scene();
 scene.background = null;
@@ -217,8 +216,13 @@ function animate() {
           />
         </div>
       </div>
+      <footer><h2 style='border-bottom-style:solid'>contact</h3>
+      <h4>email: i-need-a-cat@petfinder.3d</h3>
+      <h4>address: petfinder3d, south paw street</h3>
+      </footer>
     </div>
   </div>
+  <h3 class="swipeDown"><i class="fa-solid fa-chevron-down"></i></h3>
           <h1 class="headers">Are You Looking For a Cute Kitten?</h1>
           <button onClick="handleRotateRight(event)" class="buttons" id="catButton">Meet<br />  The<br />  Cats</button>
         </div>
@@ -328,10 +332,16 @@ function animate() {
           />
         </div>
       </div>
+      <footer style='background-color:rgb(74, 170, 244);'><h2 style='border-bottom-style:solid'>contact</h3>
+      <h4>email: i-need-a-dog@petfinder.3d</h3>
+      <h4>address: petfinder3d, south paw street</h3>
+      </footer>
     </div>
   </div>
-       
-          <h1 id='dogHeader' class="headers">Or a Playful Puppy</h1> 
+  <h3 class="swipeDown"><i class="fa-solid fa-chevron-down"></i></h3>
+  <h3 class="swipeUp"><i class="fa-solid fa-chevron-up"></i></h3>
+
+            <h1 id='dogHeader' class="headers">Or a Playful Puppy</h1> 
           <button onClick="handleRotateRight(event)" class="buttons" id="dogButton">Meet<br />  The <br /> Dogs</button>
 
         </div>
@@ -441,8 +451,15 @@ function animate() {
           />
         </div>
       </div>
+      <footer style='background-color:brown;'><h2 style='border-bottom-style:solid'>contact</h3>
+      <h4>email: i-need-a-rabbit@petfinder.3d</h3>
+      <h4>address: petfinder3d, south paw street</h3>
+      </footer>
     </div>
   </div>
+  <h3 class="swipeDown"><i class="fa-solid fa-chevron-down"></i></h3>
+  <h3 class="swipeUp"><i class="fa-solid fa-chevron-up"></i></h3>
+
           <h1 id="rabbitHeader" class="headers">Maybe a Hopping Furball?</h1> 
           <button onClick="handleRotateRight(event)" class="buttons"  id="rabbitButton">Meet<br /> The<br />  Rabbits</button>
 
@@ -552,8 +569,14 @@ function animate() {
           />
         </div>
       </div>
+      <footer style='background-color:lightgray;'><h2 style='border-bottom-style:solid'>contact</h3>
+      <h4>email: i-need-a-bird@petfinder.3d</h3>
+      <h4>address: petfinder3d, south paw street</h3>
+      </footer>
     </div>
   </div>
+  <h3 class="swipeUp"><i class="fa-solid fa-chevron-up"></i></h3>
+
           <h1 id="birdHeader" class="headers">How About a Distinguished Singer?</h1>          
           <button onClick="handleRotateRight(event)" class="buttons"  id="birdButton">Meet<br />  The <br /> Birds</button>
 
@@ -660,8 +683,6 @@ function zoomIn() {
 }
 window.handleScrollDown = () => {
   if (camera.position.z === 10) {
-    console.log("down");
-
     document.body.classList.value = "new-background";
 
     const dogDiv = document.getElementById("dog");
@@ -794,22 +815,28 @@ function rotateLeft() {
 window.handleRotateRight = (event) => {
   if (event.target.id === "catButton") {
     document.getElementsByClassName("headers")[0].classList.toggle("rotate");
+    document.getElementsByClassName("swipeDown")[0].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[0].classList.toggle("rotate");
     document.getElementById("catList").classList.toggle("rotate");
   }
   if (event.target.id === "dogButton") {
     document.getElementsByClassName("headers")[1].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[1].classList.toggle("rotate");
+    document.getElementsByClassName("swipeUp")[0].classList.toggle("rotate");
+    document.getElementsByClassName("swipeDown")[1].classList.toggle("rotate");
     document.getElementById("dogList").classList.toggle("rotate");
   }
   if (event.target.id === "rabbitButton") {
     document.getElementsByClassName("headers")[2].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[2].classList.toggle("rotate");
+    document.getElementsByClassName("swipeUp")[1].classList.toggle("rotate");
+    document.getElementsByClassName("swipeDown")[2].classList.toggle("rotate");
     document.getElementById("rabbitList").classList.toggle("rotate");
   }
   if (event.target.id === "birdButton") {
     document.getElementsByClassName("headers")[3].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[3].classList.toggle("rotate");
+    document.getElementsByClassName("swipeUp")[2].classList.toggle("rotate");
     document.getElementById("birdList").classList.toggle("rotate");
   }
   rotateRight();
@@ -819,21 +846,27 @@ window.handleRotateLeft = (event) => {
   if (event.target.id === "catBack") {
     document.getElementsByClassName("headers")[0].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[0].classList.toggle("rotate");
+    document.getElementsByClassName("swipeDown")[0].classList.toggle("rotate");
     document.getElementById("catList").classList.toggle("rotate");
   }
   if (event.target.id === "dogBack") {
     document.getElementsByClassName("headers")[1].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[1].classList.toggle("rotate");
+    document.getElementsByClassName("swipeDown")[1].classList.toggle("rotate");
+    document.getElementsByClassName("swipeUp")[0].classList.toggle("rotate");
     document.getElementById("dogList").classList.toggle("rotate");
   }
   if (event.target.id === "rabbitBack") {
     document.getElementsByClassName("headers")[2].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[2].classList.toggle("rotate");
+    document.getElementsByClassName("swipeDown")[2].classList.toggle("rotate");
+    document.getElementsByClassName("swipeUp")[1].classList.toggle("rotate");
     document.getElementById("rabbitList").classList.toggle("rotate");
   }
   if (event.target.id === "birdBack") {
     document.getElementsByClassName("headers")[3].classList.toggle("rotate");
     document.getElementsByClassName("buttons")[3].classList.toggle("rotate");
+    document.getElementsByClassName("swipeUp")[2].classList.toggle("rotate");
     document.getElementById("birdList").classList.toggle("rotate");
   }
   addEventListeners();
