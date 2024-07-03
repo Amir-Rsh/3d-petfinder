@@ -11,13 +11,13 @@ canvas {
   top: 0;
   left: 0;
   z-index: -1;
-  height: 100vh !important;
+  height: 100dvh !important;
   width: 100vw !important;
 }
 .sections {
   text-align: center;
   width: 99dvw;
-  height: 100vh;
+  height: 100dvh;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   font-size: 30px;
   font-weight: bold;
@@ -50,7 +50,7 @@ canvas {
   position: absolute;
   border-radius: 4%;
   padding: 30px;
-  margin: 10vh 20px 0 20px;
+  margin: 10dvh 20px 0 20px;
   width: fit-content;
   height: fit-content;
   transition: transform 2s ease;
@@ -79,8 +79,8 @@ canvas {
 }
 .buttons {
   margin-left: auto;
-  height: 30vh;
-  margin-top: 40vh;
+  height: 30dvh;
+  margin-top: 40dvh;
   border: none;
   border-radius: 4%;
   font-weight: bold;
@@ -183,7 +183,7 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   left: 100vw;
   transition: transform 2s ease;
@@ -195,7 +195,7 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   left: 100vw;
   transition: transform 2s ease;
@@ -207,7 +207,7 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   left: 100vw;
   transition: transform 2s ease;
@@ -219,7 +219,7 @@ canvas {
   align-items: center;
   overflow: auto;
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   left: 100vw;
   transition: transform 2s ease;
@@ -235,7 +235,7 @@ canvas {
   align-items: center;
   overflow: auto;
   width: 90vw;
-  height: 100vh;
+  height: 100dvh;
 }
 #catBack {
   background-color: darkgreen;
@@ -254,12 +254,12 @@ canvas {
 }
 .swipeDown {
   position: absolute;
-  margin-top: 90vh;
+  margin-top: 90dvh;
   animation: downSwipe 1s infinite;
 }
 .swipeUp {
   position: absolute;
-  margin-top: 5vh;
+  margin-top: 5dvh;
   animation: upSwipe 1s infinite;
 }
 footer {
@@ -276,7 +276,7 @@ footer {
 }
 @keyframes buttonMove {
   50% {
-    margin-top: 41vh;
+    margin-top: 41dvh;
   }
 }
 @keyframes backBlink {
@@ -286,7 +286,7 @@ footer {
 }
 @keyframes downSwipe {
   50% {
-    margin-top: 95vh;
+    margin-top: 95dvh;
   }
 }
 @keyframes upSwipe {
